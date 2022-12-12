@@ -107,6 +107,12 @@ jobs:
     - name: Build (Release)
       run: cmake --build release
 
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: FAudio-windows-msvc
+        path: release
+
   windows-mingw:
     name: Windows (MinGW)
     runs-on: windows-latest
@@ -152,6 +158,12 @@ jobs:
 
     - name: Build (Release Wine)
       run: cmake --build releasewine
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: FAudio-windows-mingw
+        path: releasewine
 
   freebsd:
     runs-on: macos-12
